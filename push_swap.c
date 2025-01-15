@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:49:12 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 14:54:28 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:57:32 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -477,6 +477,8 @@ void sort_stack(t_stack *stack_a, t_stack *stack_b)
     free(a_inst.arr);
     free(b_inst.arr);
 }
+
+
 
 void back_to_a(t_stack *stack_a, t_stack *stack_b, int size)
 {
