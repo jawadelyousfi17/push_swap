@@ -1,11 +1,12 @@
 CC = cc
-SRC = cost_target.c errors_handler.c free_matrix.c from_a_to_b.c init_stacks.c instructions1.c move_to_top.c parse_check_args.c \
-	push_swap.c shared_instructions.c sort_stack.c stack.c utils.c
+
+SRC = cost_target.c errors_handler.c free_matrix.c from_a_to_b.c init_stacks.c instructions1.c instructions2.c instructions3.c \
+		move_to_top.c parse_check_args.c push_swap.c shared_instructions.c sort_stack.c stack.c utils.c
+
 CFLAGS = -Wall -Wextra -Werror
 
 GREEN= \033[0;32m
 NC= \033[0m 
-
 
 LIBS = libft/libft.a
 
