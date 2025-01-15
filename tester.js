@@ -1,13 +1,14 @@
 const { exec } = require("child_process");
+const readline = require("readline");
 
 function generateRandomNumbers(count, min, max) {
-    const numbersSet = new Set();
-    while (numbersSet.size < count) {
-      const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-      numbersSet.add(randomNum);
-    }
-    return Array.from(numbersSet);
+  const numbersSet = new Set();
+  while (numbersSet.size < count) {
+    const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+    numbersSet.add(randomNum);
   }
+  return Array.from(numbersSet);
+}
 
 function executeChecker(numbers) {
   return new Promise((resolve, reject) => {
@@ -35,13 +36,32 @@ function executePushSwap(numbers) {
   });
 }
 
+function calculateAverage(results) {
+  const sum = results.reduce((acc, curr) => acc + curr, 0);
+  const average = sum / results.length;
+  return average;
+}
+
 async function main() {
-    const results = []
-  const totalRuns = 500;
-  const maxOperations = 12;
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  const askQuestion = (query) =>
+    new Promise((resolve) => rl.question(query, (answer) => resolve(Number(answer))));
+
+  const totalRuns = await askQuestion("Enter the number of iterations: ");
+  const numCount = await askQuestion("Enter the number of numbers to generate: ");
+  const maxOperations = await askQuestion("Enter the maximum allowed operations: ");
+  rl.close();
+
+  const results = [];
+  const min = -1000000;
+  const max = 1000000;
 
   for (let i = 0; i < totalRuns; i++) {
-    const randomNumbers = generateRandomNumbers(5, -1000000, 1000000);
+    const randomNumbers = generateRandomNumbers(numCount, min, max);
 
     try {
       const checkerResult = await executeChecker(randomNumbers);
@@ -53,9 +73,11 @@ async function main() {
 
       const operationCount = await executePushSwap(randomNumbers);
       results.push(operationCount);
-      if (operationCount > 10) console.log("Not good !", ` ${operationCount}`);
+
       if (operationCount > maxOperations) {
-        console.error(`Run ${i + 1}: Error! Operation count exceeds ${maxOperations}`);
+        console.error(
+          `Run ${i + 1}: Error! Operation count exceeds ${maxOperations} (Count: ${operationCount})`
+        );
         console.log("Numbers:", randomNumbers.join(" "));
         return; // Stop the process on first error
       }
@@ -68,15 +90,9 @@ async function main() {
       console.log(`Completed ${i + 1} runs...`);
     }
   }
-//   console.log(results);
-function calculateAverage(results) {
-    const sum = results.reduce((acc, curr) => acc + curr, 0);
-    const average = sum / results.length;
-    return average;
-}
 
-const averageResult = calculateAverage(results);
-console.log("Average Result:", averageResult);
+  const averageResult = calculateAverage(results);
+  console.log("Average Result:", averageResult);
   console.log("All runs completed successfully!");
 }
 

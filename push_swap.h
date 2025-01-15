@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:46:14 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 19:25:36 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/15 19:46:52 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,8 @@ int get_terget_index(t_stack *b, int item);
 void init_stacks_a_b(t_stack *a, t_stack *b, char **str, int size);
 void duplicate_and_sort(t_stack *a, t_stack *b);
 int get_move_index(t_stack *stack, int index);
+void check_and_sort(t_stack *stack_a, t_stack *stack_b);
+
+void clean_stacks(t_stack *a, t_stack *b);
 
 #endif
