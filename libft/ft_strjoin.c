@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:04:18 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 14:39:33 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/15 20:35:35 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	free((void *) s1);
 	return (joined);
 }
-

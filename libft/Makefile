@@ -18,21 +18,27 @@ BONUS			=	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
 BONUS_OBJS		= $(BONUS:.c=.o)
 NAME = libft.a
 
-all : $(NAME)
-	 @echo "📦 Building libft..."
+GREEN= \033[0;32m
+NC= \033[0m 
+
+all : start $(NAME)
+	@echo "$(GREEN)✅ Libft done.$(NC)"
 	 
 $(NAME): $(OBJS)
-   
+
+start :
+	@echo "📦 Building libft..."
+
 bonus: $(BONUS_OBJS)
 
 %.o: %.c libft.h
-	$(CC) $(CFLAGS) -c $< -o $@
-	ar rc $(NAME) $@
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@ar rc $(NAME) $@
 
 clean :
-	rm -f $(OBJS) $(BONUS_OBJS)
+	@rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re : fclean all

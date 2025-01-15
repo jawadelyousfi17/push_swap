@@ -1,7 +1,7 @@
 CC = cc
 
 SRC = cost_target.c errors_handler.c free_matrix.c from_a_to_b.c init_stacks.c instructions1.c instructions2.c instructions3.c \
-		move_to_top.c parse_check_args.c push_swap.c shared_instructions.c sort_stack.c stack.c utils.c
+		move_to_top.c parse_check_args.c push_swap.c shared_instructions.c sort_stack.c stack.c utils.c utils2.c
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -31,12 +31,14 @@ libft:
 
 clean:
 	@echo "🗑️ Cleaning object files..."
+	@make clean -C libft
 	@rm -rf $(OBJS)
 
 fclean: clean
 	@echo "🗑️ Cleaning all generated files..."
+	@make fclean -C libft
 	@rm -rf $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re libft
+.PHONY: all clean fclean re libft push_swap

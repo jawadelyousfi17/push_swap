@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors_handler.c                                   :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 20:07:56 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 20:08:25 by jel-yous         ###   ########.fr       */
+/*   Created: 2025/01/15 19:56:34 by jel-yous          #+#    #+#             */
+/*   Updated: 2025/01/15 20:31:02 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	custom_exit(char *s)
+int	ft_abs(int a)
 {
-	ft_putstr_fd(s, STDERR_FILENO);
-	exit(EXIT_FAILURE);
+	if (a < 0)
+		return (-a);
+	return (a);
 }
 
-void	custom_exit_clean(char *s)
+int	ft_max_2(int a, int b)
 {
-	ft_putstr_fd(s, STDERR_FILENO);
-	exit(EXIT_FAILURE);
+	if (a > b)
+		return (a);
+	return (b);
 }
