@@ -37,11 +37,11 @@ function executePushSwap(numbers) {
 
 async function main() {
     const results = []
-  const totalRuns = 10000;
-  const maxOperations = 700;
+  const totalRuns = 500;
+  const maxOperations = 12;
 
   for (let i = 0; i < totalRuns; i++) {
-    const randomNumbers = generateRandomNumbers(100, -1000000, 1000000);
+    const randomNumbers = generateRandomNumbers(5, -1000000, 1000000);
 
     try {
       const checkerResult = await executeChecker(randomNumbers);
@@ -53,7 +53,7 @@ async function main() {
 
       const operationCount = await executePushSwap(randomNumbers);
       results.push(operationCount);
-      if (operationCount > 5450) console.log("Not good !", ` ${operationCount}`);
+      if (operationCount > 10) console.log("Not good !", ` ${operationCount}`);
       if (operationCount > maxOperations) {
         console.error(`Run ${i + 1}: Error! Operation count exceeds ${maxOperations}`);
         console.log("Numbers:", randomNumbers.join(" "));

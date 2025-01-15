@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:46:14 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 15:10:35 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/15 19:25:36 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,24 @@ int index_of(int *arr, int size, int item);
 int ft_min(int *a, int size);
 int ft_max(int *a, int size);
 int ft_abs(int a);
+
+void sort_stack_first(char **str, int size);
+void back_to_a(t_stack *stack_a, t_stack *stack_b, int size);
+void from_a_to_b(t_stack *stack_a, t_stack *stack_b);
+void how_to_top_a_methode_2(t_stack *a, int *inst, int index);
+int handle_shared(t_stack *stack_a, t_stack *stack_b, int *insta, int *instb);
+void do_shared_instruction_based_on_dir(t_stack *a, t_stack *b, int *inst, int *instb);
+void do_instruction_based_on_dir(t_stack *a, t_stack *b, int *inst, int stack);
+int is_stack_sorted(t_stack *a);
+void sort_stack_of_3(t_stack *stack);
+int get_cheapest_index(t_stack *a, t_stack *b);
+int calcul_cost(t_stack *a, t_stack *b, int a_index);
+int get_move_direction(t_stack *stack, int index);
+void bring_top_top_a(t_stack *stack, int target_index);
+void bring_top_top_b(t_stack *stack, int target_index);
+int get_terget_index(t_stack *b, int item);
+void init_stacks_a_b(t_stack *a, t_stack *b, char **str, int size);
+void duplicate_and_sort(t_stack *a, t_stack *b);
+int get_move_index(t_stack *stack, int index);
 
 #endif

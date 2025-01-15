@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:49:12 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 16:07:56 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/15 19:21:39 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -359,11 +359,24 @@ void sort_stack_first(char **str, int size)
     int max_index;
 
     init_stacks_a_b(&stack_a, &stack_b, str, size);
+    if (is_stack_sorted(&stack_a))
+    {
+         free(stack_a.arr);
+        free(stack_b.arr);
+        return;       
+    }
+    if (stack_a.length == 2)
+    {
+        sa(&stack_a, 1);
+            free(stack_a.arr);
+        free(stack_b.arr);
+        return ;
+    }
     if (stack_a.length == 3)
     {
         sort_stack_of_3(&stack_a);
         free(stack_a.arr);
-        free(stack_a.arr);
+        free(stack_b.arr);
         return;
     }
     if (stack_a.length > 4)
