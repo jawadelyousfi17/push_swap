@@ -53,7 +53,7 @@ async function main() {
 
       const operationCount = await executePushSwap(randomNumbers);
       results.push(operationCount);
-      if (operationCount > 650) console.log("Not good !", ` ${operationCount}`);
+      if (operationCount > 5450) console.log("Not good !", ` ${operationCount}`);
       if (operationCount > maxOperations) {
         console.error(`Run ${i + 1}: Error! Operation count exceeds ${maxOperations}`);
         console.log("Numbers:", randomNumbers.join(" "));

@@ -1,5 +1,5 @@
 CC = cc
-SRC = instructions1.c parse_args.c stack.c push_swap.c errors_handler.c free_matrix.c  utils.c
+SRC = instructions1.c parse_check_args.c stack.c push_swap.c errors_handler.c free_matrix.c  utils.c
 
 GREEN= \033[0;32m
 NC= \033[0m 

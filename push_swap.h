@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:46:14 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/14 19:09:08 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:10:35 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 #define SS 9
 #define PA 10
 #define PB 11
+
+#define STACK_A 1
+#define STACK_B 2
 
 #define UP 1
 #define DOWN -1

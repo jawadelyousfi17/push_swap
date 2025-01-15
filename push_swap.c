@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:49:12 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 14:57:32 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:07:56 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,55 +32,6 @@ int get_move_index(t_stack *stack, int index)
     return stack->length - index - 1;
 }
 
-int is_sorted(t_stack *a)
-{
-    int i = 0;
-
-    return 1;
-    // if (a->top == -1)
-    //     return 0;
-    // while (/* condition */)
-    // {
-    //     /* code */
-    // }
-}
-
-void sort(t_stack *a, t_stack *b)
-{
-    int i = 0;
-    int i_hold;
-
-    i_hold = 0;
-    while (i <= a->top)
-    {
-        if (a->arr[i_hold] > a->arr[i])
-            i_hold = i;
-        i++;
-    }
-    i = 0;
-    while (i < a->top - i_hold)
-    {
-        ra(a, 1);
-        i++;
-    }
-    if (i_hold > a->top / 2)
-        while (i < a->top - i_hold)
-        {
-            ra(a, 1);
-            i++;
-        }
-    else
-        while (i < a->top - i_hold)
-        {
-            rra(a, 1);
-            i++;
-        }
-
-    pb(a, b, 1);
-
-    // ft_printf("\n%d\n", a->arr[i_hold]);
-}
-
 void duplicate_and_sort(t_stack *a, t_stack *b)
 {
     int *duplicate;
@@ -93,7 +44,7 @@ void duplicate_and_sort(t_stack *a, t_stack *b)
     {
         free(a->arr);
         free(b->arr);
-        custom_exit("ERROR IN ALLOCATION\n");
+        custom_exit("ERROR IN ALLOCATION OF duplicate\n");
     }
     sort_array(duplicate, a->size);
     i = 0;
@@ -158,32 +109,6 @@ int get_terget_index(t_stack *b, int item)
     return index_of(b->arr, b->length, closetNumber);
 }
 
-int get_terget_index_inverted(t_stack *b, int item)
-{
-    int max;
-    int i;
-    int closetNumber;
-
-    i = 0;
-    closetNumber = -1;
-    max = ft_max(b->arr, b->length);
-    if (item > ft_max(b->arr, b->length) || item > max)
-        return index_of(b->arr, b->length, max);
-    while (i < b->length && closetNumber == -1)
-    {
-        if (b->arr[i] > item)
-            closetNumber = b->arr[i];
-        i++;
-    }
-    while (i < b->length)
-    {
-        int e = b->arr[i];
-        if (e > item && ft_abs(e - item) < ft_abs(closetNumber - item))
-            closetNumber = e;
-        i++;
-    }
-    return index_of(b->arr, b->length, closetNumber);
-}
 void bring_top_top_b(t_stack *stack, int target_index)
 {
     int instruction;
@@ -272,86 +197,15 @@ int get_cheapest_index(t_stack *a, t_stack *b)
     return cheapest_move_index;
 }
 
-void push_b_if_smaller(t_stack *a, t_stack *b)
-{
-    int i;
-
-    i = 0;
-    while (i < a->length && b->length < 2)
-    {
-        if (a->arr[i] < a->size - 3)
-        {
-            bring_top_top_a(a, i);
-            pb(a, b, 1);
-        }
-        i++;
-    }
-}
-
-void init_instructions_stack(t_stack *inst, int size)
-{
-    inst->arr = malloc(size * sizeof(int));
-    inst->size = size;
-    inst->top = -1;
-    inst->length = 0;
-}
-
-void how_to_top_a(t_stack *a, t_stack *inst, int index)
-{
-    int instruction;
-    int moves_count;
-    int i;
-
-    moves_count = get_move_index(a, index);
-    if (index <= a->length / 2)
-        instruction = DOWN;
-    else
-        instruction = UP;
-    i = 0;
-    while (i < moves_count)
-    {
-        push_to_stack(inst, instruction);
-        i++;
-    }
-}
-
-void how_to_top_b(t_stack *a, t_stack *inst, int index)
-{
-    int instruction;
-    int moves_count;
-    int i;
-
-    moves_count = get_move_index(a, index);
-    if (index <= a->length / 2)
-        instruction = DOWN;
-    else
-        instruction = UP;
-    i = 0;
-    while (i < moves_count)
-    {
-        push_to_stack(inst, instruction);
-        i++;
-    }
-}
-
-void display_array(t_stack *a)
-{
-    int i = 0;
-    while (i < a->length)
-    {
-        ft_printf("%d ", a->arr[i++]);
-    }
-    ft_printf("\n");
-}
 void sort_stack_of_3(t_stack *stack)
 {
-    if (stack->length != 3)
-        return;
+    int a;
+    int b;
+    int c;
 
-    int a = stack->arr[2];
-    int b = stack->arr[1];
-    int c = stack->arr[0];
-
+    a = stack->arr[2];
+    b = stack->arr[1];
+    c = stack->arr[0];
     if (a == ft_min(stack->arr, 3))
     {
         if (b > c)
@@ -359,26 +213,17 @@ void sort_stack_of_3(t_stack *stack)
             rra(stack, 1);
             sa(stack, 1);
         }
-        return;
     }
-
-    if (a == ft_max(stack->arr, 3))
+    else if (a == ft_max(stack->arr, 3))
     {
         ra(stack, 1);
         if (b > c)
             sa(stack, 1);
-        return;
     }
-    if (b < c)
-    {
+    else if (b < c)
         sa(stack, 1);
-        return;
-    }
-    rra(stack, 1);
-}
-
-void push_from_b_to_a(t_stack *a, t_stack *b)
-{
+    else
+        rra(stack, 1);
 }
 
 int is_stack_sorted(t_stack *a)
@@ -395,106 +240,107 @@ int is_stack_sorted(t_stack *a)
     return 1;
 }
 
-void f()
+void do_instruction_based_on_dir(t_stack *a, t_stack *b, int *inst, int stack)
 {
-    system("leaks push_swap");
+    int dir;
+
+    dir = inst[1];
+    if (stack == STACK_A)
+    {
+        if (dir == UP)
+            ra(a, 1);
+        if (dir == DOWN)
+            rra(a, 1);
+    }
+    else
+    {
+        if (dir == UP)
+            rb(b, 1);
+        if (dir == DOWN)
+            rrb(b, 1);
+    }
+    inst[0]--;
 }
 
-void handle_shared_instructions_2(t_stack *stack_a, t_stack *stack_b, t_stack *a_inst, t_stack *b_inst, int i)
+void do_shared_instruction_based_on_dir(t_stack *a, t_stack *b, int *inst, int *instb)
 {
-    while (i < a_inst->length)
-    {
-        if (a_inst->arr[i] == -1)
-            rra(stack_a, 1);
-        else
-            ra(stack_a, 1);
-        i++;
-    }
-    while (i < b_inst->length)
-    {
-        if (b_inst->arr[i] == -1)
-            rrb(stack_b, 1);
-        else
-            rb(stack_b, 1);
-        i++;
-    }
+    if (inst[1] == UP)
+        rr(a, b);
+    if (inst[1] == DOWN)
+        rrr(a, b);
+    inst[0]--;
+    instb[0]--;
 }
 
-int handle_shared_instructions_1(t_stack *stack_a, t_stack *stack_b, t_stack *a_inst, t_stack *b_inst)
+int handle_shared(t_stack *stack_a, t_stack *stack_b, int *insta, int *instb)
 {
+    if (insta[1] == instb[1])
+    {
+        while (insta[0] && instb[0])
+            do_shared_instruction_based_on_dir(stack_a, stack_b, insta, instb);
+        while (insta[0])
+            do_instruction_based_on_dir(stack_a, stack_b, insta, STACK_A);
+        while (instb[0])
+            do_instruction_based_on_dir(stack_a, stack_b, instb, STACK_B);
+    }
+    else
+    {
+        while (insta[0])
+            do_instruction_based_on_dir(stack_a, stack_b, insta, STACK_A);
+        while (instb[0])
+            do_instruction_based_on_dir(stack_a, stack_b, instb, STACK_B);
+    }
+    return 0;
+}
+
+void how_to_top_a_methode_2(t_stack *a, int *inst, int index)
+{
+    int instruction;
+    int moves_count;
+
+    moves_count = get_move_index(a, index);
+    if (index <= a->length / 2)
+        instruction = DOWN;
+    else
+        instruction = UP;
+    inst[0] = moves_count;
+    inst[1] = instruction;
+}
+
+void from_a_to_b(t_stack *stack_a, t_stack *stack_b)
+{
+    int inst_a[2];
+    int inst_b[2];
     int i;
 
     i = 0;
-    while (i < a_inst->length && i < b_inst->length)
-    {
-        if (a_inst->arr[i] == b_inst->arr[i])
-        {
-            if (a_inst->arr[i] == -1)
-                rrr(stack_a, stack_b);
-            else if (a_inst->arr[i] == 1)
-                rr(stack_a, stack_b);
-        }
-        else
-        {
-            if (a_inst->arr[i] == -1)
-                rra(stack_a, 1);
-            else
-                ra(stack_a, 1);
-            if (b_inst->arr[i] == -1)
-                rrb(stack_b, 1);
-            else
-                rb(stack_b, 1);
-        }
-        i++;
-    }
-    return i;
-}
-
-void sort_stack(t_stack *stack_a, t_stack *stack_b)
-{
-
-    t_stack a_inst;
-    t_stack b_inst;
-    int i;
-
-    i = 0;
-    init_instructions_stack(&a_inst, stack_a->size);
-    init_instructions_stack(&b_inst, stack_a->size);
     while (stack_a->length > 3)
     {
         int cheapest_index = get_cheapest_index(stack_a, stack_b);
         int target_index = get_terget_index(stack_b, stack_a->arr[cheapest_index]);
-        a_inst.top = -1;
-        a_inst.length = 0;
-        b_inst.top = -1;
-        b_inst.length = 0;
-        how_to_top_a(stack_a, &a_inst, cheapest_index);
-        how_to_top_a(stack_b, &b_inst, target_index);
-        i = handle_shared_instructions_1(stack_a, stack_b, &a_inst, &b_inst);
-        handle_shared_instructions_2(stack_a, stack_b, &a_inst, &b_inst, i);
+        how_to_top_a_methode_2(stack_a, inst_a, cheapest_index);
+        how_to_top_a_methode_2(stack_b, inst_b, target_index);
+        handle_shared(stack_a, stack_b, inst_a, inst_b);
         pb(stack_a, stack_b, 1);
     }
-    free(a_inst.arr);
-    free(b_inst.arr);
 }
-
-
 
 void back_to_a(t_stack *stack_a, t_stack *stack_b, int size)
 {
     int k;
+    int a;
 
+    a = 0;
     k = 0;
     while (size)
     {
-        if (stack_b->arr[stack_b->top] > ft_max(stack_a->arr, stack_a->length))
-            pa(stack_a, stack_b, 1);
-        else if (stack_a->arr[stack_a->top] == stack_b->arr[stack_b->top] + 1)
+        if (stack_b->arr[stack_b->top] > ft_max(stack_a->arr, stack_a->length) || stack_a->arr[stack_a->top] == stack_b->arr[stack_b->top] + 1)
             pa(stack_a, stack_b, 1);
         else
         {
-            int a = index_of(stack_a->arr, stack_a->size, stack_b->arr[stack_b->top] + 1);
-            int k = 0;
+            a = index_of(stack_a->arr, stack_a->size,
+                         stack_b->arr[stack_b->top] + 1);
+            k = 0;
             while (k < a + 1)
             {
                 rra(stack_a, 1);
@@ -518,19 +364,19 @@ void sort_stack_first(char **str, int size)
         sort_stack_of_3(&stack_a);
         free(stack_a.arr);
         free(stack_a.arr);
-        return ;
+        return;
     }
     if (stack_a.length > 4)
         pb(&stack_a, &stack_b, 1);
     pb(&stack_a, &stack_b, 1);
-    sort_stack(&stack_a, &stack_b);
+    from_a_to_b(&stack_a, &stack_b);
     max_index = index_of(stack_b.arr, stack_b.length, ft_max(stack_b.arr, stack_b.length));
     if (stack_b.length > 1)
         bring_top_top_b(&stack_b, max_index);
     sort_stack_of_3(&stack_a);
     back_to_a(&stack_a, &stack_b, stack_b.length);
     while (!is_stack_sorted(&stack_a))
-    rra(&stack_a, 1);
+        rra(&stack_a, 1);
     free(stack_a.arr);
     free(stack_b.arr);
 }
