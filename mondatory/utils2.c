@@ -1,48 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 13:53:42 by jel-yous          #+#    #+#             */
-/*   Updated: 2024/12/31 16:47:48 by jel-yous         ###   ########.fr       */
+/*   Created: 2025/01/15 19:56:34 by jel-yous          #+#    #+#             */
+/*   Updated: 2025/01/16 15:12:59 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-static int	ft_isspace(char c)
+static int ft_isspace(int c)
 {
-	if (c == 32 || (c >= 9 && c <= 13))
-		return (1);
-	return (0);
+	return (c == ' ' || c == '\t');
 }
 
-int	ft_atoi(const char *nptr)
+long	ft_atol(const char *nptr)
 {
 	long	result;
 	int		sign;
-	long	holder;
 
-	holder = 0;
 	result = 0;
 	sign = 1;
 	while (*nptr && ft_isspace(*nptr))
 		nptr++;
 	if (*nptr == '-' || *nptr == '+')
-	{
-		if (*nptr == '-')
+		if (*(nptr++) == '-')
 			sign = -1;
-		nptr++;
-	}
 	while (*nptr && ft_isdigit(*nptr))
-	{
-		if (result * 10 + *nptr - 48 < holder)
-			return (-(sign + 1) / 2);
-		result = result * 10 + *nptr - 48;
-		holder = result;
-		nptr++;
-	}
-	return ((int)(result * sign));
+		result = result * 10 + *(nptr++) - 48;
+	return (result * sign);
+}
+
+
+int	ft_abs(int a)
+{
+	if (a < 0)
+		return (-a);
+	return (a);
+}
+
+int	ft_max_2(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
 }

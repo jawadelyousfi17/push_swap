@@ -6,14 +6,14 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:46:14 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 20:35:02 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/16 16:37:55 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "./libft/libft.h"
+# include "../libft/libft.h"
 # include <limits.h>
 
 # define RA 3
@@ -52,6 +52,7 @@ void	custom_exit(char *s);
 void	custom_exit_clean(char *s);
 
 char	**free_matrix(char **grid);
+long	ft_atol(const char *nptr);
 
 void	pb(t_stack *a, t_stack *b, int flag);
 void	pa(t_stack *a, t_stack *b, int flag);
@@ -64,6 +65,7 @@ void	sb(t_stack *a, int flag);
 void	ss(t_stack *a, t_stack *b);
 void	rr(t_stack *a, t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+
 
 void	sort_array(int *arr, int size);
 int		*clone_array(int *arr, int size);

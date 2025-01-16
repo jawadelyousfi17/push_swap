@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   free_matrix.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 19:56:34 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 20:31:02 by jel-yous         ###   ########.fr       */
+/*   Created: 2025/01/09 15:50:29 by jel-yous          #+#    #+#             */
+/*   Updated: 2025/01/16 15:04:40 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_abs(int a)
+char	**free_matrix(char **grid)
 {
-	if (a < 0)
-		return (-a);
-	return (a);
-}
+	int	i;
 
-int	ft_max_2(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
+	i = 0;
+	if (!grid)
+		return (NULL);
+	while (grid[i])
+	{
+		free(grid[i]);
+		i++;
+	}
+	free(grid);
+	return (NULL);
 }

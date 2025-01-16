@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   instructions3.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 16:14:20 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 20:35:30 by jel-yous         ###   ########.fr       */
+/*   Created: 2025/01/15 19:50:05 by jel-yous          #+#    #+#             */
+/*   Updated: 2025/01/16 16:20:40 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "checker.h"
 
-long	ft_atol(const char *nptr)
+void	rrr(t_stack *a, t_stack *b)
 {
-	long	result;
-	int		sign;
+	rra(a, 0);
+	rrb(b, 0);
+}
 
-	result = 0;
-	sign = 1;
-	while (*nptr && ft_isspace(*nptr))
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
-		if (*(nptr++) == '-')
-			sign = -1;
-	while (*nptr && ft_isdigit(*nptr))
-		result = result * 10 + *(nptr++) - 48;
-	return (result * sign);
+void	rrb(t_stack *a, int flag)
+{
+	int	i;
+	int	tmp;
+
+	if (a->top <= 0)
+		return ;
+	tmp = a->arr[0];
+	i = 0;
+	while (i < a->top)
+	{
+		a->arr[i] = a->arr[i + 1];
+		i++;
+	}
+	a->arr[a->top] = tmp;
+	if (flag)
+		ft_printf("rrb\n");
 }

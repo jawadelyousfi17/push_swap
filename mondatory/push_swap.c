@@ -6,13 +6,13 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:49:12 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 20:23:18 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:01:57 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_args(char **av, int ac)
+static int	check_args(char **av, int ac)
 {
 	int	i;
 

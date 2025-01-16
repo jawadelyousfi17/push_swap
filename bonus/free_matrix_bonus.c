@@ -6,11 +6,11 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:50:29 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 20:08:59 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:19:11 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 char	**free_matrix(char **grid)
 {

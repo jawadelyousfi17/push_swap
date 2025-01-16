@@ -7,7 +7,7 @@ CSRC = ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
 					ft_memmove.c ft_putnbr_fd.c  ft_strdup.c  ft_strlen.c  ft_strrchr.c \
 					ft_toupper.c ft_calloc.c  ft_isdigit.c ft_memchr.c  ft_memset.c  \
 					ft_putstr_fd.c  ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_striteri.c \
-					ft_atol.c \
+					get_next_line.c \
 					ft_printf.c ft_putadress.c ft_putnbr.c utils.c ft_puthexa.c ft_putunsigned.c 
 
 OBJS = $(CSRC:.c=.o)
@@ -18,20 +18,15 @@ BONUS			=	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
 BONUS_OBJS		= $(BONUS:.c=.o)
 NAME = libft.a
 
-GREEN= \033[0;32m
-NC= \033[0m 
+all : $(NAME)
+	@printf "\n✅ libft done.\n"
 
-all : start $(NAME)
-	@echo "$(GREEN)✅ Libft done.$(NC)"
-	 
 $(NAME): $(OBJS)
-
-start :
-	@echo "📦 Building libft..."
-
+    
 bonus: $(BONUS_OBJS)
 
 %.o: %.c libft.h
+	@printf "\rBuilding libft ..."
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@ar rc $(NAME) $@
 

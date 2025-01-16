@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_check_args.c                                 :+:      :+:    :+:   */
+/*   check_valid_args.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 15:38:11 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 20:22:04 by jel-yous         ###   ########.fr       */
+/*   Created: 2025/01/16 14:56:40 by jel-yous          #+#    #+#             */
+/*   Updated: 2025/01/16 14:57:26 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 static int	is_int(char *str)
 {
@@ -80,8 +80,6 @@ char	**parse_args(int ac, char **av)
 
 	i = 1;
 	s = ft_strdup("");
-	if (!s)
-		return (NULL);
 	if (!s)
 		return (NULL);
 	while (i < ac)

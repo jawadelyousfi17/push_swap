@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:26:21 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 20:26:35 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/15 21:05:08 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ void	sort_stack_first(char **str, int size)
 
 	init_stacks_a_b(&stack_a, &stack_b, str, size);
 	if (is_stack_sorted(&stack_a))
-	{
 		clean_stacks(&stack_a, &stack_b);
-	}
 	else if (stack_a.length == 2)
 	{
 		sa(&stack_a, 1);
