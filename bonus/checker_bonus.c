@@ -6,15 +6,15 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:49:46 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 16:48:51 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/16 20:15:25 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static int check_args(char **av, int ac)
+static int	check_args(char **av, int ac)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < ac)
@@ -25,60 +25,80 @@ static int check_args(char **av, int ac)
 	return (1);
 }
 
-void invalid_inst(t_stack *a, t_stack *b, char *str)
+void	exec_commands(char **str, t_stack *a, t_stack *b)
 {
-	free(str);
+	int	i;
+
+	i = 0;
+	while (str[i])
+		do_inst(a, b, str[i++]);
+	if (is_stack_sorted(a) && b->length == 0)
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 	free(a->arr);
 	free(b->arr);
-	custom_exit("ERROR\n");
+	free_matrix(str);
 }
 
-
-void check_is_sorted(char **str, int size)
+char	**read_from_input(t_stack *a, t_stack *b)
 {
-	t_stack stack_a;
-	t_stack stack_b;
-	char *inst;
+	char	*inst;
+	char	*instructions;
+	char	**splited;
 
-	init_stacks_a_b(&stack_a, &stack_b, str, size);
+	instructions = ft_strdup("");
 	inst = get_next_line(STDIN_FILENO);
 	while (inst)
 	{
-		do_inst(&stack_a, &stack_b, inst);
+		if (get_instruction(inst) == INVL_INST)
+		{
+			free(inst);
+			clean_stacks_and_exit(a, b);
+		}
+		instructions = ft_strjoin_2(instructions, inst);
 		free(inst);
+		if (!instructions)
+			clean_stacks_and_exit(a, b);
+		instructions = ft_strjoin_2(instructions, " ");
+		if (!instructions)
+			clean_stacks_and_exit(a, b);
 		inst = get_next_line(STDIN_FILENO);
 	}
-	if (is_stack_sorted(&stack_a) && stack_b.length == 0)
-	{
-		ft_printf("OK\n");
-	} else 
-		ft_printf("KO\n");
-	free(stack_a.arr);
-	free(stack_b.arr);
+	splited = ft_split(instructions, ' ');
+	free(instructions);
+	return (splited);
 }
 
-void f()
+void	check_is_sorted(char **str, int size)
 {
-	system("leaks checker");
+	t_stack	a;
+	t_stack	b;
+	char	**splited;
+
+	init_stacks_a_b(&a, &b, str, size);
+	splited = read_from_input(&a, &b);
+	if (!splited)
+		clean_stacks_and_exit(&a, &b);
+	exec_commands(read_from_input(&a, &b), &a, &b);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int size;
-	char **str;
+	int		size;
+	char	**str;
 
 	if (ac < 2)
-		return EXIT_FAILURE;
+		return (EXIT_FAILURE);
 	str = parse_args(ac, av);
 	if (!check_args(av, ac) || !str)
-		custom_exit("ERROR\n");
+		custom_exit("Error\n");
 	size = check_valid_args(str);
 	if (size == 0)
 	{
 		free_matrix(str);
-		custom_exit("ERROR\n");
+		custom_exit("Error\n");
 	}
 	check_is_sorted(str, size);
-	atexit(f);
-	return 0;
+	return (0);
 }

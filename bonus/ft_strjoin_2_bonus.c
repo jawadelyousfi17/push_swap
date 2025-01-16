@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin_2_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 15:04:18 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 18:37:50 by jel-yous         ###   ########.fr       */
+/*   Created: 2025/01/16 18:36:39 by jel-yous          #+#    #+#             */
+/*   Updated: 2025/01/16 20:16:01 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin_2(const char *s1, const char *s2)
 {
 	size_t	i;
 	size_t	j;
@@ -26,7 +26,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	j = 0;
 	joined = (char *)malloc(len1 + len2 + 1);
 	if (!joined)
-		return (NULL);
+		return (free((void *) s1), NULL);
 	while (i < len1)
 	{
 		joined[i] = s1[i];
@@ -35,5 +35,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	while (j < len2)
 		joined[i++] = s2[j++];
 	joined[i] = '\0';
+	free((void *) s1);
 	return (joined);
 }

@@ -6,13 +6,13 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:56:34 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 15:12:59 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/16 20:53:04 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int ft_isspace(int c)
+static int	ft_isspace(int c)
 {
 	return (c == ' ' || c == '\t');
 }
@@ -33,7 +33,6 @@ long	ft_atol(const char *nptr)
 		result = result * 10 + *(nptr++) - 48;
 	return (result * sign);
 }
-
 
 int	ft_abs(int a)
 {

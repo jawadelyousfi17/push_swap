@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_valid_args.c                                 :+:      :+:    :+:   */
+/*   check_valid_args_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:56:40 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 14:57:26 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/16 18:53:29 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,10 @@ char	**parse_args(int ac, char **av)
 		return (NULL);
 	while (i < ac)
 	{
-		s = ft_strjoin(s, av[i]);
+		s = ft_strjoin_2(s, av[i]);
 		if (!s)
 			return (NULL);
-		s = ft_strjoin(s, " ");
+		s = ft_strjoin_2(s, " ");
 		if (!s)
 			return (NULL);
 		i++;

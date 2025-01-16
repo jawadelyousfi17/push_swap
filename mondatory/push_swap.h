@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:46:14 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 16:37:55 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/16 20:52:15 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	sb(t_stack *a, int flag);
 void	ss(t_stack *a, t_stack *b);
 void	rr(t_stack *a, t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
-
 
 void	sort_array(int *arr, int size);
 int		*clone_array(int *arr, int size);

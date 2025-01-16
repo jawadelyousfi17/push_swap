@@ -7,7 +7,8 @@ SRC = mondatory/cost_target.c mondatory/errors_handler.c mondatory/free_matrix.c
 
 B_SRC = bonus/check_valid_args_bonus.c bonus/checker_bonus.c bonus/errors_handler_bonus.c \
 	bonus/free_matrix_bonus.c bonus/init_stacks_bonus.c bonus/instructions1_bonus.c bonus/instructions2_bonus.c \
-	 bonus/instructions3_bonus.c bonus/stack_bonus_bonus.c bonus/utils2_bonus_bonus.c bonus/utils_bonus.c
+	 bonus/instructions3_bonus.c bonus/stack_bonus_bonus.c bonus/utils2_bonus_bonus.c bonus/utils_bonus.c \
+	 bonus/ft_strjoin_2_bonus.c
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -23,42 +24,32 @@ NAME = push_swap
 B_NAME = checker
 
 
-all: libft $(NAME)
-	@echo "✅ $(GREEN)Build complete.$(NC)"
-	@echo "$(GREEN)▶️ Run ./$(NAME) <ARGS>$(NC)"
+all: libft $(NAME) 
 
-bonus : libft $(B_NAME) $(B_OBJS)
-	@echo "✅ $(GREEN)Build complete.$(NC)"
-	@echo "$(GREEN)▶️ Run ./$(B_NAME) <ARGS>$(NC)"	
+bonus : libft $(B_NAME) 
+	
+$(B_NAME) : $(LIBS) $(B_OBJS) 
+	$(CC) $(B_OBJS) $(LIBS) -o $(B_NAME)
 
-$(B_NAME) : $(B_OBJS)
-	@echo "🔗 Linking object files into $(B_NAME)..."
-	@$(CC) $(B_OBJS) $(LIBS) -o $(B_NAME)
-
-$(NAME): $(OBJS)
-	@echo "🔗 Linking object files into $(NAME)..."
-	@$(CC) $(OBJS) $(LIBS) -o $(NAME)
+$(NAME): $(LIBS) $(OBJS) 
+	$(CC) $(OBJS) $(LIBS) -o $(NAME)
 
 bonus/%.o : bonus/%.c bonus/checker.h
-	@echo "🛠 Compiling $< ..."
-	@$(CC) $(CFLAGS)  -c $< -o $@	
+	$(CC) $(CFLAGS)  -c $< -o $@	
 
 mondatory/%.o: mondatory/%.c mondatory/push_swap.h
-	@echo "🛠 Compiling $< ..."
-	@$(CC) $(CFLAGS)  -c $< -o $@
+	$(CC) $(CFLAGS)  -c $< -o $@
 
 libft:
-	@make -C libft
+	make -C libft
 
 clean:
-	@echo "🗑️ Cleaning object files..."
-	@make clean -C libft
-	@rm -rf $(OBJS) $(B_OBJS)
+	make clean -C libft
+	rm -rf $(OBJS) $(B_OBJS)
 
 fclean: clean
-	@echo "🗑️ Cleaning all generated files..."
-	@make fclean -C libft
-	@rm -rf $(NAME) $(B_NAME)
+	make fclean -C libft
+	rm -rf $(NAME) $(B_NAME)
 
 re: fclean all
 

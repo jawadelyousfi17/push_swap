@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:50:09 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 16:49:12 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/16 20:15:56 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,13 @@ void	custom_exit(char *s);
 
 char	**free_matrix(char **grid);
 long	ft_atol(const char *nptr);
-int compare_str(char *str, char *str1);
-int get_instruction(char *inst);
-void do_inst(t_stack *a, t_stack *b, char *inst);
-void invalid_inst(t_stack *a, t_stack *b, char *str);
+char	*ft_strjoin_2(const char *s1, const char *s2);
+
+int		compare_str(char *str, char *str1);
+int		get_instruction(char *inst);
+void	do_inst(t_stack *a, t_stack *b, char *inst);
+void	invalid_inst(t_stack *a, t_stack *b, char *str);
+void	clean_stacks_and_exit(t_stack *a, t_stack *b);
 
 void	pb(t_stack *a, t_stack *b, int flag);
 void	pa(t_stack *a, t_stack *b, int flag);
@@ -71,6 +74,5 @@ void	sb(t_stack *a, int flag);
 void	ss(t_stack *a, t_stack *b);
 void	rr(t_stack *a, t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
-
 
 #endif
