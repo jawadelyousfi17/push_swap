@@ -6,11 +6,11 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:07:56 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 21:50:32 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:38:36 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	custom_exit(char *s)
 {

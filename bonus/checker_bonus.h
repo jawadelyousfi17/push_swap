@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:50:09 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/18 15:29:14 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:39:31 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # include "../libft/libft.h"
 # include <limits.h>

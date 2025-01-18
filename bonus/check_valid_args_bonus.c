@@ -6,11 +6,11 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:56:40 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 18:53:29 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:38:25 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 static int	is_int(char *str)
 {

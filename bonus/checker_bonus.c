@@ -6,11 +6,11 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:49:46 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/18 15:34:25 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:54:27 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 static int	check_args(char **av, int ac)
 {
@@ -30,7 +30,7 @@ void	exec_commands(char **str, t_stack *a, t_stack *b)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str && str[i])
 		do_inst(a, b, str[i++]);
 	if (is_stack_sorted(a) && b->length == 0)
 		ft_printf("OK\n");
@@ -38,10 +38,13 @@ void	exec_commands(char **str, t_stack *a, t_stack *b)
 		ft_printf("KO\n");
 	free(a->arr);
 	free(b->arr);
-	free_matrix(str);
+	if (str)
+		free_matrix(str);
+	exit(EXIT_SUCCESS);
 }
 
-char	**read_from_input()
+
+char	**read_from_input(t_stack *a, t_stack *b)
 {
 	char	*inst;
 	char	*instructions;
@@ -49,10 +52,13 @@ char	**read_from_input()
 
 	instructions = NULL;
 	inst = get_next_line_2(STDIN_FILENO, START);
+	if (inst == NULL)
+		exec_commands(NULL, a, b);
 	while (inst)
 	{
 		if (get_instruction(inst) == INVL_INST)
-			return (free(inst), free(instructions), get_next_line_2(0, END),  NULL);
+			return (free(inst), free(instructions),
+				get_next_line_2(0, END), NULL);
 		instructions = ft_strjoin_2(instructions, inst);
 		free(inst);
 		if (!instructions)
@@ -73,10 +79,10 @@ void	check_is_sorted(char **str, int size)
 	char	**splited;
 
 	init_stacks_a_b(&a, &b, str, size);
-	splited = read_from_input();
+	splited = read_from_input(&a, &b);
 	if (!splited)
 		clean_stacks_and_exit(&a, &b);
-	exec_commands(splited , &a, &b);
+	exec_commands(splited, &a, &b);
 }
 
 int	main(int ac, char **av)

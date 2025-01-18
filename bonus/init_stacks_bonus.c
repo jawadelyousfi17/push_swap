@@ -6,11 +6,11 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:30:28 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 22:48:04 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:38:51 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	init_stacks_a_b(t_stack *a, t_stack *b, char **str, int size)
 {

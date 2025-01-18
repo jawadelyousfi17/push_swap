@@ -6,11 +6,11 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:55:15 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/18 15:29:22 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:43:27 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 static char	*clean_memory(char **reserve, char **line)
 {
@@ -72,8 +72,8 @@ char	*get_next_line_2(int fd, int flag)
 	int			read_count;
 	char		*line;
 
-    if (flag == END)
-        return (free(reserve), NULL);
+	if (flag == END)
+		return (free(reserve), NULL);
 	if (BUFFER_SIZE <= 0)
 		return (NULL);
 	line = NULL;

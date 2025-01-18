@@ -6,11 +6,11 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:50:29 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 22:47:57 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:38:44 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 char	**free_matrix(char **grid)
 {

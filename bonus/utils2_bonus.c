@@ -6,11 +6,11 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:56:34 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/18 15:23:20 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:39:11 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 static int	ft_isspace(int c)
 {
