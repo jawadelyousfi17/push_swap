@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:56:34 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 16:53:29 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:23:20 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	get_instruction(char *inst)
 		return (PA);
 	if (compare_str(inst, "pb"))
 		return (PB);
-	if (compare_str(inst, "ra"))
+	if (compare_str(inst, "ss"))
 		return (SS);
 	return (INVL_INST);
 }

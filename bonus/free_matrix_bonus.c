@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:50:29 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 20:16:23 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/16 22:47:57 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	invalid_inst(t_stack *a, t_stack *b, char *str)
 	free(str);
 	free(a->arr);
 	free(b->arr);
-	custom_exit("ERROR\n");
+	custom_exit("Error\n");
 }
 
 void	clean_stacks_and_exit(t_stack *a, t_stack *b)

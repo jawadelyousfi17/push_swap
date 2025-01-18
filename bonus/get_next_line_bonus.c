@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:55:15 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 18:35:38 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:29:22 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "checker.h"
 
 static char	*clean_memory(char **reserve, char **line)
 {
@@ -65,13 +65,15 @@ static void	extract_line(char **reserve, char **line, int *read_count)
 	*reserve = tmp;
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line_2(int fd, int flag)
 {
 	static char	*reserve;
 	char		*buffer;
 	int			read_count;
 	char		*line;
 
+    if (flag == END)
+        return (free(reserve), NULL);
 	if (BUFFER_SIZE <= 0)
 		return (NULL);
 	line = NULL;

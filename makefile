@@ -8,12 +8,10 @@ SRC = mondatory/cost_target.c mondatory/errors_handler.c mondatory/free_matrix.c
 B_SRC = bonus/check_valid_args_bonus.c bonus/checker_bonus.c bonus/errors_handler_bonus.c \
 	bonus/free_matrix_bonus.c bonus/init_stacks_bonus.c bonus/instructions1_bonus.c bonus/instructions2_bonus.c \
 	 bonus/instructions3_bonus.c bonus/stack_bonus_bonus.c bonus/utils2_bonus_bonus.c bonus/utils_bonus.c \
-	 bonus/ft_strjoin_2_bonus.c
+	 bonus/ft_strjoin_2_bonus.c \
+	 bonus/get_next_line_bonus.c
 
 CFLAGS = -Wall -Wextra -Werror
-
-GREEN= \033[0;32m
-NC= \033[0m 
 
 LIBS = libft/libft.a
 
@@ -22,7 +20,6 @@ B_OBJS = $(B_SRC:.c=.o)
 
 NAME = push_swap
 B_NAME = checker
-
 
 all: libft $(NAME) 
 

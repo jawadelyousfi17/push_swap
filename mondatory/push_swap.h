@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:46:14 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 20:52:15 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:22:31 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int		ft_min(int *a, int size);
 int		ft_max(int *a, int size);
 int		ft_abs(int a);
 int		ft_max_2(int a, int b);
+char	*ft_strjoin_2(const char *s1, const char *s2);
 
 void	sort_stack_first(char **str, int size);
 void	back_to_a(t_stack *stack_a, t_stack *stack_b, int size);

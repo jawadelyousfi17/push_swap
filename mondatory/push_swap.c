@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:49:12 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 15:01:57 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/16 22:47:37 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	str = parse_args(ac, av);
 	if (!check_args(av, ac) || !str)
-		custom_exit("ERROR\n");
+		custom_exit("Error\n");
 	size = check_valid_args(str);
 	if (!size)
 	{
 		free_matrix(str);
-		custom_exit("ERROR\n");
+		custom_exit("Error\n");
 	}
 	sort_stack_first(str, size);
 	return (0);

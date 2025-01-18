@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:50:09 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 20:15:56 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:29:14 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@
 # define RRR 10
 # define SS 11
 # define INVL_INST 12 
+
+# define START 1
+# define END 2
 
 typedef struct s_stack
 {
@@ -56,6 +59,7 @@ void	custom_exit(char *s);
 char	**free_matrix(char **grid);
 long	ft_atol(const char *nptr);
 char	*ft_strjoin_2(const char *s1, const char *s2);
+char	*get_next_line_2(int fd, int flag);
 
 int		compare_str(char *str, char *str1);
 int		get_instruction(char *inst);

@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:30:28 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 20:12:44 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/16 22:47:25 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	duplicate_and_sort(t_stack *a, t_stack *b)
 	{
 		free(a->arr);
 		free(b->arr);
-		custom_exit("ERROR IN ALLOCATION OF duplicate\n");
+		custom_exit("Error\n");
 	}
 	sort_array(duplicate, a->size);
 	i = 0;
@@ -42,21 +42,21 @@ void	init_stacks_a_b(t_stack *a, t_stack *b, char **str, int size)
 	if (!a->arr)
 	{
 		free_matrix(str);
-		custom_exit("ERROR\n");
+		custom_exit("Error\n");
 	}
 	initialize_stack_a(a, size, str);
 	if (!check_duplicate(a))
 	{
 		free(a->arr);
 		free_matrix(str);
-		custom_exit("ERROR DIPLUCATION\n");
+		custom_exit("Error\n");
 	}
 	init_stack(b, size);
 	if (!b->arr)
 	{
 		free_matrix(str);
 		free(a->arr);
-		custom_exit("ERROR\n");
+		custom_exit("Error\n");
 	}
 	free_matrix(str);
 	duplicate_and_sort(a, b);

@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:38:11 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/15 21:02:27 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:21:34 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,7 @@ char	**parse_args(int ac, char **av)
 	char	**splited;
 
 	i = 1;
-	s = ft_strdup("");
-	if (!s)
-		return (NULL);
+	s = NULL;
 	while (i < ac)
 	{
 		s = ft_strjoin(s, av[i]);

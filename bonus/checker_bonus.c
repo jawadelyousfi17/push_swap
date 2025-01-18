@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:49:46 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 20:15:25 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:34:25 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,33 +41,29 @@ void	exec_commands(char **str, t_stack *a, t_stack *b)
 	free_matrix(str);
 }
 
-char	**read_from_input(t_stack *a, t_stack *b)
+char	**read_from_input()
 {
 	char	*inst;
 	char	*instructions;
 	char	**splited;
 
-	instructions = ft_strdup("");
-	inst = get_next_line(STDIN_FILENO);
+	instructions = NULL;
+	inst = get_next_line_2(STDIN_FILENO, START);
 	while (inst)
 	{
 		if (get_instruction(inst) == INVL_INST)
-		{
-			free(inst);
-			clean_stacks_and_exit(a, b);
-		}
+			return (free(inst), free(instructions), get_next_line_2(0, END),  NULL);
 		instructions = ft_strjoin_2(instructions, inst);
 		free(inst);
 		if (!instructions)
-			clean_stacks_and_exit(a, b);
+			return (NULL);
 		instructions = ft_strjoin_2(instructions, " ");
 		if (!instructions)
-			clean_stacks_and_exit(a, b);
-		inst = get_next_line(STDIN_FILENO);
+			return (NULL);
+		inst = get_next_line_2(STDIN_FILENO, START);
 	}
 	splited = ft_split(instructions, ' ');
-	free(instructions);
-	return (splited);
+	return (free(instructions), splited);
 }
 
 void	check_is_sorted(char **str, int size)
@@ -77,10 +73,10 @@ void	check_is_sorted(char **str, int size)
 	char	**splited;
 
 	init_stacks_a_b(&a, &b, str, size);
-	splited = read_from_input(&a, &b);
+	splited = read_from_input();
 	if (!splited)
 		clean_stacks_and_exit(&a, &b);
-	exec_commands(read_from_input(&a, &b), &a, &b);
+	exec_commands(splited , &a, &b);
 }
 
 int	main(int ac, char **av)

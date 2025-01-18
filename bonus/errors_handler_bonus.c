@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:07:56 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/16 20:04:46 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/16 21:50:32 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,5 @@
 void	custom_exit(char *s)
 {
 	ft_putstr_fd(s, STDERR_FILENO);
-	system("leaks checker");
 	exit(EXIT_FAILURE);
 }

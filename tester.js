@@ -79,6 +79,7 @@ async function main() {
           `Run ${i + 1}: Error! Operation count exceeds ${maxOperations} (Count: ${operationCount})`
         );
         console.log("Numbers:", randomNumbers.join(" "));
+        console.log("Average Result:", averageResult);
         return; // Stop the process on first error
       }
     } catch (error) {
