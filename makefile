@@ -7,7 +7,7 @@ SRC = mondatory/cost_target.c mondatory/errors_handler.c mondatory/free_matrix.c
 
 B_SRC = bonus/check_valid_args_bonus.c bonus/checker_bonus.c bonus/errors_handler_bonus.c \
 	 bonus/free_matrix_bonus.c bonus/ft_strjoin_2_bonus.c bonus/get_next_line_bonus.c bonus/init_stacks_bonus.c bonus/instructions1_bonus.c \
-	bonus/instructions2_bonus.c bonus/instructions3_bonus.c bonus/stack_bonus.c bonus/utils2_bonus.c bonus/utils_bonus.c
+	bonus/instructions2_bonus.c bonus/instructions3_bonus.c bonus/stack_bonus.c bonus/utils2_bonus.c
 
 CFLAGS = -Wall -Wextra -Werror
 

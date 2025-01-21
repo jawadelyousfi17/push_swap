@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:50:09 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/18 15:39:31 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/21 19:58:36 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		check_valid_args(char **av);
 void	initialize_stack_a(t_stack *stack, int ac, char **av);
 int		check_duplicate(t_stack *stack);
 char	**parse_args(int ac, char **av);
+int		ft_is_empty(char *s);
 
 void	custom_exit(char *s);
 

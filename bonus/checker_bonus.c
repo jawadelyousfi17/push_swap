@@ -6,7 +6,7 @@
 /*   By: jel-yous <jel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:49:46 by jel-yous          #+#    #+#             */
-/*   Updated: 2025/01/18 15:54:27 by jel-yous         ###   ########.fr       */
+/*   Updated: 2025/01/21 20:00:59 by jel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ static int	check_args(char **av, int ac)
 	i = 1;
 	while (i < ac)
 	{
-		if (ft_strlen(av[i++]) == 0)
+		if (ft_strlen(av[i]) == 0 || ft_is_empty(av[i]))
 			return (0);
+		i++;
 	}
 	return (1);
 }
@@ -42,7 +43,6 @@ void	exec_commands(char **str, t_stack *a, t_stack *b)
 		free_matrix(str);
 	exit(EXIT_SUCCESS);
 }
-
 
 char	**read_from_input(t_stack *a, t_stack *b)
 {
@@ -92,8 +92,10 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (EXIT_FAILURE);
+	if (!check_args(av, ac))
+		custom_exit("Error\n");
 	str = parse_args(ac, av);
-	if (!check_args(av, ac) || !str)
+	if (!str)
 		custom_exit("Error\n");
 	size = check_valid_args(str);
 	if (size == 0)
